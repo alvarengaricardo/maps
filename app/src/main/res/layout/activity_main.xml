@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".old">
 
     <TextView
         android:id="@+id/tvLabellat"
@@ -85,7 +85,7 @@
         app:layout_constraintTop_toTopOf="@+id/tvLabelaccuracy" />
 
     <TextView
-        android:id="@+id/tvLabelspeed"
+        android:id="@+id/tvLabelSpeed"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -100,11 +100,11 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="08dp"
         android:text="0.00"
-        app:layout_constraintStart_toEndOf="@+id/tvLabelspeed"
-        app:layout_constraintTop_toTopOf="@+id/tvLabelspeed" />
+        app:layout_constraintStart_toEndOf="@+id/tvLabelSpeed"
+        app:layout_constraintTop_toTopOf="@+id/tvLabelSpeed" />
 
     <TextView
-        android:id="@+id/tvLabelsensor"
+        android:id="@+id/tvLabelSensor"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -119,29 +119,29 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="08dp"
         android:text="Cell Tower + Wifi"
-        app:layout_constraintStart_toEndOf="@+id/tvLabelsensor"
-        app:layout_constraintTop_toTopOf="@+id/tvLabelsensor" />
+        app:layout_constraintStart_toEndOf="@+id/tvLabelSensor"
+        app:layout_constraintTop_toTopOf="@+id/tvLabelSensor" />
 
     <TextView
-        android:id="@+id/tvLabelupdates"
+        android:id="@+id/tvLabelUpdates"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="18dp"
         android:text="Updates:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/swLocationsupdates" />
+        app:layout_constraintTop_toBottomOf="@+id/swLocationsUpdates" />
 
     <TextView
-        android:id="@+id/tv_updates"
+        android:id="@+id/tvUpdates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="08dp"
         android:text="Off"
-        app:layout_constraintStart_toEndOf="@+id/tvLabelupdates"
-        app:layout_constraintTop_toTopOf="@+id/tvLabelupdates" />
+        app:layout_constraintStart_toEndOf="@+id/tvLabelUpdates"
+        app:layout_constraintTop_toTopOf="@+id/tvLabelUpdates" />
 
     <Switch
-        android:id="@+id/swLocationsupdates"
+        android:id="@+id/swLocationsUpdates"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -159,25 +159,25 @@
         android:text="GPS/SavePower"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLabelupdates" />
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelUpdates" />
 
     <TextView
         android:id="@+id/tvAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="08dp"
-        app:layout_constraintStart_toEndOf="@+id/tvLbladdress"
-        app:layout_constraintTop_toTopOf="@+id/tvLbladdress" />
+        app:layout_constraintStart_toEndOf="@+id/tvLblAddress"
+        app:layout_constraintTop_toTopOf="@+id/tvLblAddress" />
 
     <TextView
-        android:id="@+id/tvLbladdress"
+        android:id="@+id/tvLblAddress"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="18dp"
         android:text="Address:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLabelspeed" />
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelSpeed" />
 
     <View
         android:id="@+id/divider"

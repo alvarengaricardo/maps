@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Maps"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".old"
             android:exported="true">
 
 
