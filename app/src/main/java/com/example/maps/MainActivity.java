@@ -1,5 +1,7 @@
 package com.example.maps;
 
+import static com.google.android.gms.location.LocationRequest.Builder.IMPLICIT_MIN_UPDATE_INTERVAL;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Switch;
@@ -9,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.Priority;
 
 public class MainActivity extends AppCompatActivity{
     public static final int defaultUpdateInterval = 30;
@@ -40,10 +43,14 @@ public class MainActivity extends AppCompatActivity{
         swGps = findViewById(R.id.swGps);
 
         // locationrequest
-        locationRequest = new LocationRequest();
-        locationRequest.setInterval(1000 * defaultUpdateInterval);
-        locationRequest.setFastestInterval(1000 * shortUpdateInterval);
-        locationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+
+
+
+        new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 10000)
+                .setWaitForAccurateLocation(false)
+                .setMinUpdateIntervalMillis(IMPLICIT_MIN_UPDATE_INTERVAL)
+                .setMaxUpdateDelayMillis(100000)
+                .build();
 
     }
 }
