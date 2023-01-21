@@ -1,7 +1,5 @@
 package com.example.maps;
 
-import static com.google.android.gms.location.LocationRequest.Builder.IMPLICIT_MIN_UPDATE_INTERVAL;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Switch;
@@ -11,15 +9,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.Priority;
 
-public class MainActivity extends AppCompatActivity{
-    public static final int defaultUpdateInterval = 30;
-    public static final int shortUpdateInterval = 5;
+public class MainActivity extends AppCompatActivity {
     TextView tvLat, tvLon, tvAltitude, tvAccuracy, tvSpeed, tvSensor, tvUpdates, tvAddress;
     Switch swLocationsUpdates, swGps;
+    boolean updateOn = false;
+    private static final int DEFAULT_UPDATE = 30;
+    private static final int MIN_UPDATE = 5;
 
-    // Locatin Request
+
+    // Location Request
     LocationRequest locationRequest;
 
     // Google API
@@ -42,16 +41,23 @@ public class MainActivity extends AppCompatActivity{
         swLocationsUpdates = findViewById(R.id.swLocationsUpdates);
         swGps = findViewById(R.id.swGps);
 
-        // locationrequest
+        locationRequest = new LocationRequest();
+        locationRequest.setInterval(1000 * DEFAULT_UPDATE);
+        locationRequest.setFastestInterval(1000 * MIN_UPDATE);
+        locationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
 
-
-
-        new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 10000)
-                .setWaitForAccurateLocation(false)
-                .setMinUpdateIntervalMillis(IMPLICIT_MIN_UPDATE_INTERVAL)
-                .setMaxUpdateDelayMillis(100000)
-                .build();
-
+        /*
+        swGps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (swGps.isChecked()) {
+                    locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+                    tvSensor.setText("GPS ON");
+                }else{
+                    locationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+                    tvSensor.setText("Using Tower and WIFI");
+                }
+            }
+        });*/
     }
 }
-
