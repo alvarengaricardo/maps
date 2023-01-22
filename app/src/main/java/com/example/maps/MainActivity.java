@@ -2,6 +2,8 @@ package com.example.maps;
 
 import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,6 +23,8 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final int PERMISSIONS_FINE_LOCATION = 99;
@@ -168,6 +172,16 @@ public class MainActivity extends AppCompatActivity {
             tvSpeed.setText((String.valueOf(location.getSpeed())));
         } else {
             tvSpeed.setText("Not available");
+        }
+
+        Geocoder geocoder = new Geocoder(MainActivity.this);
+
+        try{
+            List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+            tvAddress.setText(addresses.get(0).getAddressLine(0));
+        }
+        catch (Exception e){
+            tvAddress.setText("Unable to get street address");
         }
     }
 }
