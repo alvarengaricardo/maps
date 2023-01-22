@@ -1,14 +1,17 @@
 package com.example.maps;
 
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 
 public class MainActivity extends AppCompatActivity {
     TextView tvLat, tvLon, tvAltitude, tvAccuracy, tvSpeed, tvSensor, tvUpdates, tvAddress;
@@ -46,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
         locationRequest.setFastestInterval(1000 * MIN_UPDATE);
         locationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
 
-        /*
         swGps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,6 +60,15 @@ public class MainActivity extends AppCompatActivity {
                     tvSensor.setText("Using Tower and WIFI");
                 }
             }
-        });*/
+        });
+    }
+    private void updateGPS(){
+        //get permissions to track GPS
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(MainActivity.this);
+        if(ActivityCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+
+        }else{
+
+        }
     }
 }
